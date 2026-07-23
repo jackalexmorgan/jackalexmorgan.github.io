@@ -13,8 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!line1 || !prefix || !designPrefix || !rotating || !cursor || !title) return;
 
     const line1Text = "Hi! I'm Jack 👋";
-    const line2Prefix = "I'm a Digital Product Designer and I";
+    const line2PrefixDesktop = "I'm a Digital Product Designer and I";
     const line3Prefix = 'design ';
+    const isMobileHero = () => window.matchMedia('(max-width: 768px)').matches;
+    const line2Prefix = () =>
+      isMobileHero() ? `${line2PrefixDesktop} ` : line2PrefixDesktop;
     const START_PHRASE_TEXT = 'exceptional experiences';
     const phrases = [
       { text: 'exceptional experiences', emoji: '✨', color: '#f3e8ff' },
@@ -105,13 +108,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const fullHeroLabel = (phrase) =>
-      `${line1Text} ${line2Prefix} ${line3Prefix}${phraseLabel(phrase)}`;
+      `${line1Text} ${line2Prefix()} ${line3Prefix}${phraseLabel(phrase)}`;
 
     const setFullText = (phrase = getStartPhrase()) => {
       line1.textContent = line1Text;
       line2Wrap.hidden = false;
       line3Wrap.hidden = false;
-      prefix.textContent = line2Prefix;
+      prefix.textContent = line2Prefix();
       designPrefix.textContent = line3Prefix;
       rotating.textContent = phraseLabel(phrase);
       setHighlight(phrase);
@@ -186,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       line2Wrap.hidden = false;
       placeCursor(line2Wrap);
-      await typeInto(prefix, line2Prefix);
+      await typeInto(prefix, line2Prefix());
 
       line3Wrap.hidden = false;
       placeCursor(line3Wrap);

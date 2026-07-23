@@ -1977,6 +1977,29 @@ body.has-floating-cursor .gallery-lightbox__backdrop {
     --layout-gutter: clamp(1.75rem, 6.5vw, 2.5rem);
   }
 
+  .hero__content {
+    text-align: center;
+    padding-inline: clamp(1rem, 5vw, 1.5rem);
+    box-sizing: border-box;
+  }
+
+  .hero__title {
+    text-align: center;
+  }
+
+  .hero__line {
+    display: inline;
+    text-align: center;
+  }
+
+  .hero__line + .hero__line {
+    margin-top: 0;
+  }
+
+  #hero-line-1-wrap {
+    display: block;
+  }
+
   .case-hero {
     padding-top: 3rem;
     padding-bottom: 2rem;
@@ -2032,7 +2055,7 @@ body.has-floating-cursor .gallery-lightbox__backdrop {
   .hero__content {
     width: 100%;
     max-width: 100%;
-    padding-inline: 0;
+    padding-inline: clamp(1rem, 5vw, 1.5rem);
     box-sizing: border-box;
   }
 
