@@ -14,10 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const line1Text = "Hi! I'm Jack 👋";
     const line2PrefixDesktop = "I'm a Digital Product Designer and I";
-    const line3Prefix = 'design ';
+    const line3PrefixDesktop = 'design ';
     const isMobileHero = () => window.matchMedia('(max-width: 768px)').matches;
     const line2Prefix = () =>
       isMobileHero() ? `${line2PrefixDesktop} ` : line2PrefixDesktop;
+    const line3Prefix = () => (isMobileHero() ? 'design' : line3PrefixDesktop);
     const START_PHRASE_TEXT = 'exceptional experiences';
     const phrases = [
       { text: 'exceptional experiences', emoji: '✨', color: '#f3e8ff' },
@@ -58,11 +59,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const HERO_INTRO_KEY = 'designedbyjack:hero-intro-played';
 
-    const introAlreadyPlayed = () => sessionStorage.getItem(HERO_INTRO_KEY) === '1';
+    let introPlayed = false;
+
+    const introAlreadyPlayed = () => introPlayed;
 
     const markIntroPlayed = () => {
+      introPlayed = true;
       sessionStorage.setItem(HERO_INTRO_KEY, '1');
     };
+
+    const navEntry = performance.getEntriesByType('navigation')[0];
+    if (navEntry?.type === 'reload') {
+      sessionStorage.removeItem(HERO_INTRO_KEY);
+    } else if (sessionStorage.getItem(HERO_INTRO_KEY) === '1') {
+      introPlayed = true;
+    }
 
     const SPEED = 1.144;
     const ms = (value) => Math.round(value / SPEED);
@@ -108,14 +119,14 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const fullHeroLabel = (phrase) =>
-      `${line1Text} ${line2Prefix()} ${line3Prefix}${phraseLabel(phrase)}`;
+      `${line1Text} ${line2Prefix()} ${line3Prefix()}${phraseLabel(phrase)}`;
 
     const setFullText = (phrase = getStartPhrase()) => {
       line1.textContent = line1Text;
       line2Wrap.hidden = false;
       line3Wrap.hidden = false;
       prefix.textContent = line2Prefix();
-      designPrefix.textContent = line3Prefix;
+      designPrefix.textContent = line3Prefix();
       rotating.textContent = phraseLabel(phrase);
       setHighlight(phrase);
       placeCursor(line3Wrap);
@@ -193,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       line3Wrap.hidden = false;
       placeCursor(line3Wrap);
-      await typeInto(designPrefix, line3Prefix);
+      await typeInto(designPrefix, line3Prefix());
 
       const currentPhrase = getStartPhrase();
       const recentTexts = [currentPhrase.text];
