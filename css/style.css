@@ -765,8 +765,7 @@ a.block {
   color: var(--text);
 }
 
-.about__heading em,
-.about__heading .text-highlight {
+.about__heading em {
   font-style: normal;
 }
 
