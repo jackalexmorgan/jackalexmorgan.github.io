@@ -223,6 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const reveals = document.querySelectorAll('.reveal');
 
   if ('IntersectionObserver' in window) {
+    const isMobileViewport = window.matchMedia('(max-width: 768px)').matches;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -232,7 +233,10 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
       },
-      { threshold: 0.08, rootMargin: '0px 0px -60px 0px' }
+      {
+        threshold: isMobileViewport ? 0.04 : 0.08,
+        rootMargin: isMobileViewport ? '0px 0px 0px 0px' : '0px 0px -60px 0px',
+      }
     );
 
     reveals.forEach((el) => observer.observe(el));
