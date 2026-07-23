@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZILO Migrate | Jack Morgan</title>
+  <meta name="description" content="Case study: designing ZILO Migrate, an AI-assisted data migration tool for institutional fintech.">
+  <meta property="og:title" content="ZILO Migrate | Jack Morgan">
+  <meta property="og:description" content="AI auto-matching with visual editing and oversight for complex data migrations.">
+  <meta property="og:image" content="../../images/case-studies/zilo-migrate/design-testing/application-page.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>J</text></svg>">
+</head>
+<body>
+  <div class="case-panel case-panel--open" id="case-panel">
+    <div class="case-panel__scroll">
+      <div class="case-page case-page--editorial case-page--migrate">
+    <header class="case-header">
+      <a href="/index.html" class="case-back">← Back home</a>
+                  <nav class="site-header__nav" aria-label="Site navigation">
+        <a href="/index.html#about">about</a>
+        <a href="mailto:jackalexmorgan@gmail.com">email</a>
+        <a href="https://www.linkedin.com/in/jack-morgan-b9568921" target="_blank" rel="noopener noreferrer">linkedin</a>
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">resume</a>
+      </nav>
+    </header>
+
+    <section class="case-hero">
+      <p class="case-hero-tag reveal">Product Design · Fintech · AI</p>
+      <h1 class="reveal">ZILO Migrate</h1>
+      <p class="case-hero-sub reveal">ZILO Migrate is an AI data migration tool that lets specialists auto-match sources and targets, then review and edit that mapping visually. I was the only UX designer on the product, which grew out of a Migration Oversight tool I had designed earlier.</p>
+
+      <dl class="case-meta reveal">
+        <div class="case-meta-item">
+          <dt>Role</dt>
+          <dd>Sole UX Designer</dd>
+        </div>
+        <div class="case-meta-item">
+          <dt>Product</dt>
+          <dd>ZILO Migrate</dd>
+        </div>
+        <div class="case-meta-item">
+          <dt>Origin</dt>
+          <dd>Migration Oversight toolset</dd>
+        </div>
+        <div class="case-meta-item">
+          <dt>Focus</dt>
+          <dd>AI matching + human oversight</dd>
+        </div>
+      </dl>
+    </section>
+
+    <div class="case-hero-image reveal">
+      <img src="../../images/case-studies/zilo-migrate/design-testing/application-page.png" alt="ZILO Migrate application page in the application library">
+    </div>
+
+    <div class="case-body">
+      <section class="case-section reveal">
+        <p class="section-label">01 — The challenge</p>
+        <h2>Speed from AI, <em>control for specialists</em></h2>
+        <p>Data migration is complex, time-consuming, and essential for businesses to get right. ZILO Migrate allowed migration specialists to use AI to auto-match sources and targets, then edit that data in a visual way.</p>
+        <p>My aim was not only to leverage AI to make the task simpler and faster, but to let users keep a high level of control and oversight over the process.</p>
+      </section>
+
+      <section class="case-section reveal">
+        <p class="section-label">02 — Briefing &amp; research</p>
+        <h2>Understanding migration <em>before designing screens</em></h2>
+        <p>After the Migration Oversight toolset shipped, the team decided to build a more fully featured product. I ran extensive user interviews and stakeholder workshops with product managers, AI researchers, and migration specialists.</p>
+        <p>That work gave me a thorough understanding of the data migration process, and of where AI could genuinely help versus where it would hit limits. I collaborated with the broader team to develop a persona and an overarching workflow the tool would support.</p>
+        <p>I also researched comparable tools, knowing there was no direct competitor doing exactly what we were building.</p>
+
+        <h3 class="case-subheading">Persona</h3>
+        <p>We identified two main personas working on migration projects in the tool: those who <strong>view</strong> progress (project managers) and those who <strong>do</strong> the migration work (migration specialists).</p>
+
+        <div class="learn-grid">
+          <div class="learn-card">
+            <h3>View</h3>
+            <p>Project managers need visibility into status, scope, and risk without living inside technical mapping screens.</p>
+          </div>
+          <div class="learn-card">
+            <h3>Do</h3>
+            <p>Migration specialists need speed, precision, and tools to inspect, adjust, and run migration artefacts end to end.</p>
+          </div>
+        </div>
+
+        <h3 class="case-subheading">Workflow</h3>
+        <p>Data migrations are inherently complex, so I mapped the high-level processes the tool would run and where they would sit in the system workflow.</p>
+        <p>Two main sections emerged: the <strong>application library</strong>, where source and target systems are organised, and <strong>projects</strong>, where applications are pulled together and the migration from A to B is planned and executed.</p>
+
+        <h3 class="case-subheading">Working with the AI team</h3>
+        <p>The AI team was building so quickly they were creating makeshift interfaces on their own. I absorbed those interfaces and reverse-engineered them so the experience would make sense to users, not just to engineers iterating in isolation.</p>
+      </section>
+
+      <section class="case-section case-section--design">
+        <p class="section-label reveal">03 — Design</p>
+        <h2 class="reveal">Library, schema, and <em>project execution</em></h2>
+        <p class="reveal">The interface split cleanly between organising applications, inspecting schema, and running migrations inside projects, with several major iterations on the project experience as we tested with specialists.</p>
+
+        <div class="design-test">
+          <article class="design-test__item design-test__item--stacked reveal">
+            <div class="design-test__copy">
+              <h3>Application page</h3>
+              <p>This page represents an application in the library. You can see information about it, where its data originated (source), and projects linked to the application, including whether they are synced to the latest version. It invites the user to open the schema to view, organise, and edit the underlying information that defines the application.</p>
+              <p>The design had to respect a technical constraint: the schema is built in a third-party system and must be opened deliberately, not loaded every time the application opens, to avoid unnecessary system load.</p>
+            </div>
+            <div class="design-test__media">
+              <div class="case-gallery" data-gallery-viewer>
+                <div class="case-gallery__flow">
+                  <button type="button" class="gallery-page__nav gallery-page__nav--prev" aria-label="Previous screen">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>
+                  </button>
+                  <figure class="case-gallery__screen">
+                    <img class="gallery-page__image gallery-page__image--wide" src="../../images/case-studies/zilo-migrate/design-testing/application-page.png" alt="Application page" data-gallery-image>
+                  </figure>
+                  <button type="button" class="gallery-page__nav gallery-page__nav--next" aria-label="Next screen">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>
+                  </button>
+                </div>
+                <p class="case-gallery__counter" data-gallery-counter>1 / 4</p>
+                <div data-gallery-sources hidden>
+                  <img src="../../images/case-studies/zilo-migrate/design-testing/application-page.png" alt="Application page">
+                  <img src="../../images/case-studies/zilo-migrate/design-testing/application-page-detail.png" alt="Application page detail">
+                  <img src="../../images/case-studies/zilo-migrate/design-testing/linked-projects-modal.png" alt="Linked projects modal">
+                  <img src="../../images/case-studies/zilo-migrate/design-testing/source-modal.png" alt="Source modal">
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="design-test__item design-test__item--stacked reveal">
+            <div class="design-test__copy">
+              <h3>Schema</h3>
+              <p>The schema shows the data contained in an application, organised into specification tables. Users can switch to a relationships view, shown as a flowchart, to see how those tables connect.</p>
+              <p>A simple switch lets users move between specification detail and relationships. Research showed people usually focus on one view at a time; this kept each mode optimised without losing context between them.</p>
+            </div>
+            <div class="design-test__media">
+              <video class="design-test__video" autoplay muted loop playsinline preload="auto" aria-label="Schema view switching between specification tables and relationships flowchart">
+                <source src="../../images/case-studies/zilo-migrate/design-testing/schema-relationships.mp4" type="video/mp4">
+              </video>
+            </div>
+          </article>
+
+          <article class="design-test__item design-test__item--stacked reveal">
+            <div class="design-test__copy">
+              <h3>Project page</h3>
+              <p>The project page pulls applications from the library and is where the migration specialist completes the actual migration.</p>
+              <p>After working with AI specialists on how to structure their workflow, we split project work into setting scope (which applications and data the project contains), then <strong>prepare</strong> and <strong>execute</strong>. This became the first project page design.</p>
+            </div>
+            <div class="design-test__media">
+              <img src="../../images/case-studies/zilo-migrate/design-testing/project-page-prepare-execute.png" alt="Project page with prepare and execute steps">
+            </div>
+          </article>
+
+          <article class="design-test__item design-test__item--stacked reveal">
+            <div class="design-test__copy">
+              <h3>Prepare and execute</h3>
+              <p>In prepare, users generate mapping and ETL code as reusable artefacts for later runs. They can also open a React Flow chart and table, similar to the application schema experience, to view and manipulate data.</p>
+              <p>In execute, users run events: the actual migration processes. Each project includes a runbook, a template a specialist creates for the project that sequences in each event, borrowed from the existing migration process.</p>
+            </div>
+            <div class="design-test__media">
+              <img src="../../images/case-studies/zilo-migrate/design-testing/project-page-detail.png" alt="Project prepare step with mapping artefacts and data views">
+            </div>
+          </article>
+
+          <article class="design-test__item design-test__item--stacked reveal">
+            <div class="design-test__copy">
+              <h3>Sequential project flow</h3>
+              <p>The prepare and execute model mirrored how specialists already worked, but after testing we agreed it felt too convoluted. I redesigned the project page as a streamlined sequential flow: clear steps to create a project, with supporting information in cards on the right for better visibility and findability.</p>
+            </div>
+            <div class="design-test__media">
+              <img src="../../images/case-studies/zilo-migrate/design-testing/project-page-sequential.png" alt="Sequential project page with step layout and information cards">
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="case-section reveal">
+        <p class="section-label">04 — Outcome</p>
+        <h2>Migration tooling that <em>matches how teams work</em></h2>
+        <p>ZILO Migrate turned a patchwork of scripts, spreadsheets, and ad hoc AI prototypes into a structured product: a library for applications, visual schema inspection, and project flows that specialists could trust.</p>
+        <p>The sequential project design landed after real testing showed the first prepare and execute layout was faithful to the old process but heavy in software. The final pattern keeps oversight visible while guiding users step by step through scope, preparation, and execution.</p>
+
+        <div class="outcome-grid outcome-grid--migrate">
+          <div class="outcome-card">
+            <h3>AI with an edit layer</h3>
+            <p>Auto-matching accelerates the repetitive work; visual schema and mapping views keep specialists in control of what gets accepted or changed.</p>
+          </div>
+          <div class="outcome-card">
+            <h3>Library and projects</h3>
+            <p>Applications live in a dedicated library; projects pull them into focused migration workspaces with linked sync status and deliberate schema access.</p>
+          </div>
+          <div class="outcome-card">
+            <h3>Tested project evolution</h3>
+            <p>Prepare and execute informed the domain model; the sequential step layout shipped as the clearer path after specialist feedback.</p>
+          </div>
+          <div class="outcome-card">
+            <h3>Design kept pace with AI</h3>
+            <p>Reverse-engineering fast AI-built UIs into coherent patterns let product and engineering move quickly without losing usability.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="case-footer">
+      <p>See also: <em><a href="../recertifications/index.html" data-hover-color="#6f56cc">User Recertifications</a></em> · <em><a href="../galleries/medibank/index.html" data-hover-color="#d70431">Medibank</a></em></p>
+      <p class="case-footer-sub">Interested in working together?</p>
+      <div class="case-footer-links">
+        <a href="/index.html">Back home</a>
+        <a href="https://www.linkedin.com/in/jack-morgan-b9568921" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:jackalexmorgan@gmail.com">Email</a>
+      </div>
+    </footer>
+  </div>
+    </div>
+  </div>
+<script src="../../js/cursor.js"></script>
+<script src="../../js/case-panel.js"></script>
+<script src="../../js/gallery-page.js"></script>
+</body>
+</html>

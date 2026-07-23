@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Recertifications | Jack Morgan</title>
+  <meta name="description" content="Case study: designing a user recertification workflow for team administrators on ZILO Invest.">
+  <meta property="og:title" content="User Recertifications | Jack Morgan">
+  <meta property="og:description" content="A sophisticated UX pattern to streamline a complex compliance workflow on ZILO Invest.">
+  <meta property="og:image" content="../../images/case-studies/recertifications/user-management.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>J</text></svg>">
+</head>
+<body>
+  <div class="case-panel case-panel--open" id="case-panel">
+    <div class="case-panel__scroll">
+      <div class="case-page case-page--editorial">
+    <header class="case-header">
+      <a href="/index.html" class="case-back">← Back home</a>
+                  <nav class="site-header__nav" aria-label="Site navigation">
+        <a href="/index.html#about">about</a>
+        <a href="mailto:jackalexmorgan@gmail.com">email</a>
+        <a href="https://www.linkedin.com/in/jack-morgan-b9568921" target="_blank" rel="noopener noreferrer">linkedin</a>
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">resume</a>
+      </nav>
+    </header>
+
+    <section class="case-hero">
+      <p class="case-hero-tag reveal">Product Design · Fintech</p>
+      <h1 class="reveal">User Recertifications</h1>
+      <p class="case-hero-sub reveal">A sophisticated UX pattern created to streamline a complex compliance workflow on ZILO Invest.</p>
+
+      <dl class="case-meta reveal">
+        <div class="case-meta-item">
+          <dt>Role</dt>
+          <dd>Lead Product Designer</dd>
+        </div>
+        <div class="case-meta-item">
+          <dt>Platform</dt>
+          <dd>ZILO Invest</dd>
+        </div>
+        <div class="case-meta-item">
+          <dt>Design system</dt>
+          <dd>ZILO Design System</dd>
+        </div>
+        <div class="case-meta-item">
+          <dt>Deliverables</dt>
+          <dd>Desktop + mobile flows</dd>
+        </div>
+      </dl>
+    </section>
+
+    <div class="case-hero-image reveal">
+      <img src="../../images/case-studies/recertifications/user-management.png" alt="User management dashboard with recertification status indicators">
+    </div>
+
+    <div class="case-body">
+      <section class="case-section reveal">
+        <p class="section-label">01 — The challenge</p>
+        <h2>Every user certified, <em>every cycle</em></h2>
+        <p>On ZILO Invest, a new compliance feature needed to be implemented that ensured every user on a team was certified, and also a recurring cycle of verification to ensure they remained properly certified to remain in the team.</p>
+        <p>This was important to get right, as this wasn't simply a matter of creating an efficient solution for the admins but also one of preventing serious security breaches. There was no existing feature to base this on, so I set out to identify the scope and place of this feature on the portal.</p>
+      </section>
+
+      <section class="case-section reveal">
+        <p class="section-label">02 — Research</p>
+        <h2>Grounding decisions in <em>real admin behaviour</em></h2>
+        <p>I started by aligning with stakeholders on business and security requirements, then interviewed admins who had managed similar certification processes at scale.</p>
+        <p>A stakeholder workshop consolidated findings into a shared understanding: admins need speed but the platform needed to be secure. This became a central part of the design brief.</p>
+        <p>I then conducted competitor research, with the help of tools such as Mobbin, to help me find examples of existing solutions to similar workflows as well as best practice UX patterns relevant to this design.</p>
+
+        <div class="learn-grid">
+          <div class="learn-card">
+            <h3>Deliberate actions</h3>
+            <p>Bulk actions were essential due to the size of users potentially being dealt with at one time, but each user still needed an individual decision to ensure it had been authorised by an admin.</p>
+          </div>
+          <div class="learn-card">
+            <h3>Visibility</h3>
+            <p>Admins needed to be able to be made aware of any users who were approaching the recertification due date, but in a way that wasn't disruptive to their workflow.</p>
+          </div>
+          <div class="learn-card">
+            <h3>Roles and clients</h3>
+            <p>It was identified that during this process an admin would need to be aware of the roles and clients associated with that user, as these would be reviewed at that same time and would aid their decision making.</p>
+          </div>
+          <div class="learn-card">
+            <h3>Removal</h3>
+            <p>There would need to be a way to deal with users who were not to be recertified. In addition there would likely be a need for a way to edit the user's roles and clients without disrupting the flow of bulk recertification.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section case-section--design">
+        <p class="section-label reveal">03 — Designing &amp; testing</p>
+        <h2 class="reveal">Iterations that <em>shaped the final flow</em></h2>
+        <p class="reveal">This design process involved an enormous amount of iteration between initial ideation and testing, especially around the exact way the radio buttons would work.</p>
+
+        <div class="design-test">
+          <article class="design-test__item design-test__item--stacked reveal">
+            <div class="design-test__copy">
+              <h3>User management</h3>
+              <p>User management was identified as the place which made the most sense to place the entry points to this flow. I then redesigned user management in order to provide the entry points to recertification, and at the same time provide visibility of the recertification process. Created a new component called overview indicators, also introduced badges in user rows that correspond with the status.</p>
+            </div>
+            <div class="design-test__media">
+              <div class="image-compare" data-image-compare tabindex="0" style="--compare-position: 50%;" aria-label="Before and after user management comparison">
+                <img class="image-compare__image image-compare__image--after" src="../../images/case-studies/recertifications/design-testing/user-management-after.png" alt="User management after recertification overview indicators and status badges">
+                <div class="image-compare__before-wrap">
+                  <img class="image-compare__image image-compare__image--before" src="../../images/case-studies/recertifications/design-testing/user-management-before.png" alt="User management before recertification entry points and status badges">
+                </div>
+                <div class="image-compare__divider" data-image-compare-divider aria-hidden="true">
+                  <span class="image-compare__handle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M9 6l-6 6 6 6"></path>
+                      <path d="M15 6l6 6-6 6"></path>
+                    </svg>
+                  </span>
+                </div>
+                <span class="image-compare__label image-compare__label--before">Before</span>
+                <span class="image-compare__label image-compare__label--after">After</span>
+                <input class="image-compare__input" type="range" min="0" max="100" value="50" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Compare before and after user management designs">
+              </div>
+            </div>
+          </article>
+
+          <article class="design-test__item reveal">
+            <div class="design-test__copy">
+              <h3>Modal over drawer</h3>
+              <p>The existing drawer pattern couldn't accommodate a task this complex. A centred modal keeps focus on the review while preserving context of the user management page behind it. A new design for a modal template had to be created and added to the design system.</p>
+            </div>
+            <div class="design-test__media">
+              <img src="../../images/case-studies/recertifications/design-testing/modal-over-drawer.png" alt="Recertifications overview modal with filter tabs and user list">
+            </div>
+          </article>
+
+          <article class="design-test__item design-test__item--reverse reveal">
+            <div class="design-test__copy">
+              <h3>Radio buttons</h3>
+              <p>There were many iterations of the method the admin would actually use to recertify their users. Remembering that each individual user needed a deliberate action, these iterations included explorations with checkboxes, button labels, decisions on if a radio button should be preselected, ways to make the buttons visible and obvious to the user that they needed an action.</p>
+            </div>
+            <div class="design-test__media">
+              <img src="../../images/case-studies/recertifications/design-testing/radio-buttons.png" alt="Bulk recertification modal showing radio button decision controls with validation">
+            </div>
+          </article>
+
+          <article class="design-test__item reveal">
+            <div class="design-test__copy">
+              <h3>Single and bulk recertify</h3>
+              <p>After realising the admin would enter a recertification view two ways (single view and bulk recertification) the design was updated to ensure the pattern was as similar as possible between these two views in order to prevent user confusion.</p>
+            </div>
+            <div class="design-test__media">
+              <img src="../../images/case-studies/recertifications/design-testing/single-and-bulk-recertify.png" alt="Single user recertification modal with roles, clients, and decision controls">
+            </div>
+          </article>
+
+          <article class="design-test__item design-test__item--reverse reveal">
+            <div class="design-test__copy">
+              <h3>Toasts</h3>
+              <p>Toasts were introduced to help the user with feedback with the somewhat complicated actions they were undertaking. These were not present in the design system at the time, so they were a whole new component I designed from scratch and added to the component library.</p>
+            </div>
+            <div class="design-test__media">
+              <img src="../../images/case-studies/recertifications/design-testing/toasts.png" alt="Recertification modal with role removed toast and undo action">
+            </div>
+          </article>
+
+          <article class="design-test__item reveal">
+            <div class="design-test__copy">
+              <h3>Skip vs Review later</h3>
+              <p>There were also many iterations in the scenario an admin didn't have the ability to make a decision on a user straight away. Through testing and design iterations the solution became that the user needed to deliberately select a radio button, and that button was to be labelled "review later", as "skip" simply wasn't clear enough. The user would then be marked as skipped but still needing a decision in user management.</p>
+            </div>
+            <div class="design-test__media">
+              <img src="../../images/case-studies/recertifications/design-testing/skip-vs-review-later.png" alt="User card showing Review later as a deliberate decision option">
+            </div>
+          </article>
+
+          <article class="design-test__item design-test__item--reverse reveal">
+            <div class="design-test__copy">
+              <h3>Skip with a note</h3>
+              <p>There was an exploration that didn't make its way into the original design to skip with a note, which would allow an admin to leave a reason for skipping the user which could be reviewed by other admins. It was added to the backlog for future versions.</p>
+            </div>
+            <div class="design-test__media">
+              <img src="../../images/case-studies/recertifications/design-testing/skip-with-a-note.png" alt="Bulk recertification showing skipped previously history with comment">
+            </div>
+          </article>
+
+          <article class="design-test__item design-test__item--stacked reveal">
+            <div class="design-test__copy">
+              <h3>Responsive design</h3>
+              <p>The entire project was done with responsive design as a priority.</p>
+            </div>
+            <div class="design-test__media">
+              <div class="design-test__duo design-test__duo--equal">
+                <figure>
+                  <img src="../../images/case-studies/recertifications/design-testing/responsive-mobile.png" alt="Mobile admin user management with recertification counts and status badges">
+                  <figcaption>User management</figcaption>
+                </figure>
+                <figure>
+                  <img src="../../images/case-studies/recertifications/design-testing/responsive-desktop.png" alt="Mobile recertify user flow with roles, clients, and decision controls">
+                  <figcaption>Recertify user</figcaption>
+                </figure>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="case-section reveal">
+        <p class="section-label">04 — Outcome</p>
+        <h2>Compliance that <em>admins can actually run</em></h2>
+        <p>The recertification feature shipped as a core part of the ZILO Invest admin experience. What started as a net-new compliance requirement became a set of reusable patterns: overview indicators, modal templates, toasts, and status badges that the platform continues to build on.</p>
+        <p>Admins can now see who needs attention before they open a review, work through users individually or in bulk with the same familiar card pattern, and get clear feedback on every action. The research and testing-heavy process meant those patterns were earned in realistic review scenarios, not just walkthroughs.</p>
+
+        <div class="outcome-grid outcome-grid--recertifications">
+          <div class="outcome-card">
+            <h3>Visible from user management</h3>
+            <p>Overview indicators and row-level status badges put recertification front and centre where admins already manage people, without pulling them into a separate compliance area.</p>
+          </div>
+          <div class="outcome-card">
+            <h3>Deliberate at any scale</h3>
+            <p>Whether reviewing one user or a full page, every account requires an explicit decision. Bulk recertification stays fast without sacrificing the audit trail compliance demands.</p>
+          </div>
+          <div class="outcome-card">
+            <h3>Design system grew</h3>
+            <p>Modals, toasts, and overview indicators introduced through this project are now reusable components across the ZILO Design System, including undo feedback on role removal.</p>
+          </div>
+          <div class="outcome-card">
+            <h3>Tested, then shipped</h3>
+            <p>Iterations from moderated sessions (radio button validation, Review later, toast placement, single vs bulk parity) landed because admins used them under time pressure, not just in prototypes.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="case-footer">
+      <p>See also: <em><a href="../zilo-migrate/index.html" data-hover-color="#6f56cc">ZILO Migrate</a></em> · <em><a href="../galleries/atonce/index.html" data-hover-color="#0797e0">AtOnce</a></em></p>
+      <p class="case-footer-sub">Interested in working together?</p>
+      <div class="case-footer-links">
+        <a href="/index.html">Back home</a>
+        <a href="https://www.linkedin.com/in/jack-morgan-b9568921" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:jackalexmorgan@gmail.com">Email</a>
+      </div>
+    </footer>
+  </div>
+    </div>
+  </div>
+<script src="../../js/cursor.js"></script>
+<script src="../../js/case-panel.js"></script>
+<script src="../../js/image-compare.js"></script>
+</body>
+</html>
