@@ -314,7 +314,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.site-header');
     if (!header || !document.querySelector('.home-panels')) return;
 
+    const revealHeaderIfNeeded = () => {
+      if (!header.classList.contains('hero-chrome')) return;
+      if (header.classList.contains('is-visible')) return;
+      if (window.scrollY < 8) return;
+
+      header.classList.add('is-visible');
+      header.removeAttribute('aria-hidden');
+    };
+
     const updateHeader = () => {
+      revealHeaderIfNeeded();
       header.classList.toggle('site-header--static', window.scrollY > 32);
     };
 
