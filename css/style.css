@@ -581,6 +581,19 @@ a.block {
   top: 0;
 }
 
+.block__frame--aspect-portal {
+  height: auto;
+  aspect-ratio: 2880 / 1944;
+}
+
+.block__frame--wide.block__frame--aspect-portal {
+  height: auto;
+}
+
+.block__frame--swap.block__frame--aspect-portal .block__frame__img--default {
+  object-fit: contain;
+}
+
 .block.is-hover .block__frame,
 .block:focus-visible .block__frame {
   transform: scale(1.06);
@@ -1645,6 +1658,13 @@ body.case-open {
   border-radius: 12px;
 }
 
+.gallery-page__image--portal {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2880 / 1944;
+  object-fit: contain;
+}
+
 .gallery-page__image--fading {
   opacity: 0;
 }
@@ -1941,6 +1961,10 @@ body.has-floating-cursor .gallery-lightbox__backdrop {
     width: min(350px, 100%);
     height: auto;
     aspect-ratio: 350 / 250;
+  }
+
+  .block__frame--wide.block__frame--aspect-portal {
+    aspect-ratio: 2880 / 1944;
   }
 
   .block__desc {

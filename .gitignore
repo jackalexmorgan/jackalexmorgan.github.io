@@ -4,3 +4,6 @@
 .tools/
 *.swp
 .cursor/
+
+# Local resume exports and generators (not published to GitHub)
+resumes/
