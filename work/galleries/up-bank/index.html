@@ -8,15 +8,15 @@
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="../../../css/style.css">
+ <link rel="stylesheet" href="../../../css/style.css?v=lightbox-gutters">
  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>J</text></svg>">
 </head>
-<body class="gallery-page-body">
+<body class="gallery-page-body gallery-page-body--screen-hover" data-hover-color="#ee816c">
  <div class="case-panel case-panel--open" id="case-panel">
  <div class="case-panel__scroll">
- <div class="case-page">
+ <div class="case-page" data-screen-hover="#ee816c">
  <header class="case-header">
- <a href="/index.html" class="case-back">← Back home</a>
+ <a href="/index.html" class="case-back">← back</a>
    <nav class="site-header__nav" aria-label="Site navigation">
    <a href="/index.html#about">about</a>
    <a href="mailto:jackalexmorgan@gmail.com">email</a>
@@ -25,27 +25,30 @@
  </header>
 
 
- <main class="gallery-page">
- <div class="gallery-page__inner">
+ <main class="gallery-page gallery-page--cover">
+ <div class="gallery-page__inner gallery-page__inner--cover">
  <div class="gallery-page__intro">
- <p class="gallery-page__meta">UP Bank · Savers</p>
+ <img
+   class="gallery-page__logo"
+   src="../../../images/galleries/up-bank/up-stroke-logo.svg"
+   alt="Up"
+   width="72"
+   height="72"
+ >
  <h1 class="gallery-page__title">Saver Protection</h1>
         <p class="gallery-page__desc">I designed a mobile app flow to help Up Bank customers protect their Saver accounts. This design focussed on providing clear pricing, simple toggles, and a focused path that integrates the feature naturally into existing user journeys.</p>
  </div>
 
- <div class="gallery-page__viewer" data-gallery-viewer>
- <div class="gallery-page__flow">
- <button type="button" class="gallery-page__nav gallery-page__nav--prev" aria-label="Previous screen">
- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
- </button>
+ <div class="gallery-page__viewer" data-gallery-viewer data-gallery-static-cover>
+ <div class="gallery-page__flow gallery-page__flow--bare">
  <figure class="gallery-page__screen">
- <img class="gallery-page__image" src="../../../images/galleries/up-bank/01-frame-51.jpg" alt="UP Bank Saver Protection, screen 1" data-gallery-image>
+ <span class="gallery-page__hint" aria-hidden="true">
+ <img class="gallery-page__hint-icon" src="../../../images/galleries/cursor-icon-with-shadow.svg" alt="" width="18" height="18">
+ Click to open
+ </span>
+ <img class="gallery-page__image" src="../../../images/galleries/up-bank/09-frame-118.jpg" alt="UP Bank Saver Protection, screen 9" data-gallery-image>
  </figure>
- <button type="button" class="gallery-page__nav gallery-page__nav--next" aria-label="Next screen">
- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
- </button>
  </div>
- <p class="gallery-page__counter" data-gallery-counter>1 / 11</p>
  <div data-gallery-sources hidden>
  <img src="../../../images/galleries/up-bank/01-frame-51.jpg" alt="UP Bank Saver Protection, screen 1">
  <img src="../../../images/galleries/up-bank/02-frame-54.jpg" alt="UP Bank Saver Protection, screen 2">
@@ -67,6 +70,6 @@
  </div>
 <script src="../../../js/cursor.js"></script>
 <script src="../../../js/case-panel.js"></script>
- <script src="../../../js/gallery-page.js"></script>
+ <script src="../../../js/gallery-page.js?v=lightbox-gutters"></script>
 </body>
 </html>

@@ -21,4 +21,4 @@ Then visit [http://localhost:8080](http://localhost:8080).
 ## Customise
 
 - Update the email address in `index.html` (currently `jackalexmorgan@gmail.com`)
-- Resume PDF/DOCX and build scripts live in `resumes/` (gitignored; regenerate with `python3 build-resume-docx.py` or `build-resume-pdf.py` from `resumes/scripts/`)
+- Resume DOCX and build scripts live in `resumes/` (gitignored; regenerate with `python3 build-resume-docx.py` from `resumes/scripts/`)

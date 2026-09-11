@@ -10,46 +10,66 @@
   <meta property="og:image" content="../../images/case-studies/digital-hq/hq-in-teams.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css?v=digital-hq-hero">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>J</text></svg>">
 </head>
 <body>
   <div class="case-panel case-panel--open" id="case-panel">
     <div class="case-panel__scroll">
-      <div class="case-page case-page--editorial case-page--digital-hq">
-    <header class="case-header">
-      <a href="/index.html" class="case-back">← Back home</a>
-                  <nav class="site-header__nav" aria-label="Site navigation">
+      <div class="case-page case-page--editorial case-page--product case-page--digital-hq">
+    <header class="case-header case-header--sticky-logo">
+      <div class="case-header__start">
+        <a href="/index.html" class="case-back">← back</a>
+        <a href="#top" class="case-header__logo-link" aria-label="Back to top">
+          <img
+            class="case-header__logo"
+            src="../../images/brand/zurich-logo.svg"
+            alt=""
+            width="120"
+            height="29"
+            aria-hidden="true"
+          >
+        </a>
+      </div>
+      <nav class="site-header__nav" aria-label="Site navigation">
         <a href="/index.html#about">about</a>
         <a href="mailto:jackalexmorgan@gmail.com">email</a>
         <a href="https://www.linkedin.com/in/jack-morgan-b9568921" target="_blank" rel="noopener noreferrer">linkedin</a>
       </nav>
     </header>
 
-    <section class="case-hero">
-      <p class="case-hero-tag case-hero-tag--zurich reveal">Product Design · Hack Week</p>
-      <h1 class="reveal">Digital HQ</h1>
-      <p class="case-hero-sub reveal">Zurich Insurance Australia needed a simple solution to the all too common problem of internal communication. As part of a hack week, I designed a Microsoft Teams app to provide a single, at-a-glance overview of the business, that ended up being built and shipped to the entire company.</p>
+    <section class="case-hero case-hero--product">
+      <div class="case-hero__title-row reveal">
+        <h1 class="case-hero__product case-hero__product--lockup" data-header-logo-sentinel>
+          <img
+            class="case-hero__logo-img"
+            src="../../images/brand/zurich-logo.svg"
+            alt=""
+            width="148"
+            height="36"
+            aria-hidden="true"
+          >
+          <span class="case-hero__product-name">Digital HQ</span>
+        </h1>
+        <div class="block__badges">
+          <span class="block__badge block__badge--shipped">
+            <svg class="block__badge-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M14.2 1.8 1.6 7.1c-.5.2-.5.9 0 1.1l5.3 1.9 1.9 5.3c.2.5.9.5 1.1 0l5.3-12.6c.2-.5-.3-1-.9-.8Z" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round"/>
+              <path d="M6.9 10.1 14 2.2" stroke="currentColor" stroke-width="1.35" stroke-linecap="round"/>
+            </svg>
+            Shipped
+          </span>
+          <span class="block__badge block__badge--case">
+            <svg class="block__badge-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="m8 2.2 1.55 3.72 4.05.28-3.12 2.58.97 3.94L8 10.5l-3.45 2.22.97-3.94L2.4 6.2l4.05-.28L8 2.2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+            </svg>
+            Case study
+          </span>
+        </div>
+      </div>
 
-      <dl class="case-meta reveal">
-        <div class="case-meta-item">
-          <dt>Role</dt>
-          <dd>UX / UI Designer</dd>
-        </div>
-        <div class="case-meta-item">
-          <dt>Client</dt>
-          <dd>Zurich Insurance Australia</dd>
-        </div>
-        <div class="case-meta-item">
-          <dt>Format</dt>
-          <dd>One-week hack week</dd>
-        </div>
-        <div class="case-meta-item">
-          <dt>Platform</dt>
-          <dd>Microsoft Teams app</dd>
-        </div>
-      </dl>
+      <p class="case-hero-sub reveal">Zurich Insurance Australia needed a simple solution to the all too common problem of internal communication. As part of a hack week, I designed a Microsoft Teams app to provide a single, at-a-glance overview of the business, that ended up being built and shipped to the entire company.</p>
     </section>
 
     <div class="case-hero-image reveal">
@@ -182,7 +202,7 @@
     </div>
 
     <footer class="case-footer">
-      <p>See also: <em><a href="../galleries/zurich-client-portal/index.html" data-hover-color="#19bab5">Zurich Client Portal</a></em> · <em><a href="../recertifications/index.html" data-hover-color="#6f56cc">User Recertifications</a></em></p>
+      <p>See also: <em><a href="../zilo-migrate/index.html" data-hover-color="#6f56cc">ZILO Migrate</a></em> · <em><a href="../recertifications/index.html" data-hover-color="#6f56cc">User Recertifications</a></em></p>
       <p class="case-footer-sub">Interested in working together?</p>
       <div class="case-footer-links">
         <a href="/index.html">Back home</a>
@@ -194,6 +214,7 @@
     </div>
   </div>
 <script src="../../js/cursor.js"></script>
+<script src="../../js/case-header-logo.js"></script>
 <script src="../../js/case-panel.js"></script>
 </body>
 </html>

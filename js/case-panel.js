@@ -167,6 +167,10 @@ document.addEventListener('DOMContentLoaded', () => {
         window.initImageCompare(scrollHost);
       }
 
+      if (typeof window.initCaseHeaderLogo === 'function') {
+        window.initCaseHeaderLogo(scrollHost);
+      }
+
       setOpenState(true);
       await waitForTransition();
 
@@ -192,7 +196,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const standalone = !homePanels;
 
-    if (standalone || redirectTo) {
+    // Full case-study pages leave the site shell; go to the home URL (hash preserved).
+    if (standalone) {
       const homeHref = redirectTo || siteHomePath();
       window.location.href = resolveFromSiteRoot(homeHref).href;
       return;
@@ -202,11 +207,26 @@ document.addEventListener('DOMContentLoaded', () => {
     scrollHost.innerHTML = '';
     document.title = document.body.dataset.homeTitle || document.title;
 
+    const hash = redirectTo
+      ? new URL(redirectTo, `${window.location.origin}/`).hash
+      : '';
+
     if (push) {
-      history.pushState({}, '', siteHomePath());
+      history.pushState({}, '', siteHomePath() + hash);
+    } else if (hash) {
+      history.replaceState({}, '', siteHomePath() + hash);
     }
 
     isAnimating = false;
+
+    if (hash) {
+      requestAnimationFrame(() => {
+        const target = document.querySelector(hash);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    }
   };
 
   const isPanelLink = (anchor) => {
@@ -241,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (homePanels && isHomeLink(caseLink)) {
       event.preventDefault();
-      closePanel();
+      closePanel({ redirectTo: caseLink.getAttribute('href') });
       return;
     }
 
@@ -281,6 +301,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const bootReveals = () => {
       initReveals(scrollHost);
       revealVisibleInScroll(scrollHost);
+      if (typeof window.initCaseHeaderLogo === 'function') {
+        window.initCaseHeaderLogo(scrollHost);
+      }
     };
 
     if (!prefersReducedMotion) {
