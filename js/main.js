@@ -333,4 +333,60 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   initHeaderScroll();
+
+  const initBrandScrollTop = () => {
+    const brand = document.querySelector('.site-header__brand');
+    if (!brand || !document.querySelector('.home-panels')) return;
+
+    brand.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  };
+
+  initBrandScrollTop();
+
+  const initHeroScrollShrink = () => {
+    const hero = document.querySelector('.hero');
+    const content = document.querySelector('.hero__content');
+    const scrollHint = document.querySelector('.scroll-indicator');
+    if (!hero || !content || !document.querySelector('.home-panels')) return;
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let ticking = false;
+
+    const update = () => {
+      ticking = false;
+
+      if (reducedMotion.matches) {
+        content.style.transform = '';
+        if (scrollHint) scrollHint.style.opacity = '';
+        return;
+      }
+
+      const range = Math.max(window.innerHeight * 0.85, 1);
+      const progress = Math.min(1, Math.max(0, window.scrollY / range));
+      const scale = 1 - progress * 0.28;
+
+      content.style.transform = `translate(-50%, -50%) scale(${scale})`;
+
+      if (scrollHint) {
+        scrollHint.style.opacity = String(Math.max(0, 1 - progress * 1.6));
+        scrollHint.style.pointerEvents = progress > 0.45 ? 'none' : '';
+      }
+    };
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    reducedMotion.addEventListener?.('change', update);
+  };
+
+  initHeroScrollShrink();
 });
