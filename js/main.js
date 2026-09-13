@@ -104,8 +104,37 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     };
 
-    const placeCursor = (parent) => {
-      parent.appendChild(cursor);
+    const placeCursor = (el) => {
+      renderTyped(el, getTypedText(el));
+    };
+
+    const getTypedText = (el) => {
+      if (!el) return '';
+      return el.textContent.replace(/\u200b/g, '');
+    };
+
+    const renderTyped = (el, text) => {
+      const chars = [...text];
+      let breakAt = 0;
+
+      for (let i = chars.length - 1; i >= 0; i -= 1) {
+        if (/\s/.test(chars[i])) {
+          breakAt = i + 1;
+          break;
+        }
+      }
+
+      const head = chars.slice(0, breakAt).join('');
+      const tail = chars.slice(breakAt).join('');
+
+      el.replaceChildren();
+      if (head) el.append(document.createTextNode(head));
+
+      const glue = document.createElement('span');
+      glue.className = 'typewriter-glue';
+      if (tail) glue.append(document.createTextNode(tail));
+      glue.appendChild(cursor);
+      el.appendChild(glue);
     };
 
     const clearHighlight = () => {
@@ -127,9 +156,8 @@ document.addEventListener('DOMContentLoaded', () => {
       line3Wrap.hidden = false;
       prefix.textContent = line2Prefix();
       designPrefix.textContent = line3Prefix();
-      rotating.textContent = phraseLabel(phrase);
       setHighlight(phrase);
-      placeCursor(line3Wrap);
+      renderTyped(rotating, phraseLabel(phrase));
       title.setAttribute('aria-label', fullHeroLabel(phrase));
     };
 
@@ -143,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const chars = [...text];
       for (let i = 1; i <= chars.length; i += 1) {
         const current = chars.slice(0, i).join('');
-        el.textContent = current;
+        renderTyped(el, current);
         await sleep(speed);
         if (pauseAfter.includes(current)) {
           await sleep(MID_TYPE_PAUSE_MS);
@@ -152,8 +180,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const deleteFrom = async (el, speed = DELETE_MS) => {
-      while (el.textContent.length > 0) {
-        el.textContent = [...el.textContent].slice(0, -1).join('');
+      let chars = [...getTypedText(el)];
+      while (chars.length > 0) {
+        chars = chars.slice(0, -1);
+        renderTyped(el, chars.join(''));
         await sleep(speed);
       }
     };
@@ -193,21 +223,22 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const runIntro = async () => {
-      placeCursor(line1Wrap);
+      placeCursor(line1);
       await sleep(CURSOR_BLINK_MS * START_CURSOR_BLINKS);
       await typeInto(line1, line1Text, { pauseAfter: ['Hi!'], speed: LINE1_TYPE_MS });
       await sleep(LINE1_PAUSE_MS);
 
       line2Wrap.hidden = false;
-      placeCursor(line2Wrap);
+      placeCursor(prefix);
       await typeInto(prefix, line2Prefix());
 
       line3Wrap.hidden = false;
-      placeCursor(line3Wrap);
+      placeCursor(designPrefix);
       await typeInto(designPrefix, line3Prefix());
 
       const currentPhrase = getStartPhrase();
       const recentTexts = [currentPhrase.text];
+      placeCursor(rotating);
       await typePhrase(currentPhrase);
       announce(currentPhrase);
 
