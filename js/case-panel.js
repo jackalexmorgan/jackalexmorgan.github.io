@@ -308,6 +308,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (typeof window.initCaseHeaderLogo === 'function') {
         window.initCaseHeaderLogo(scrollHost);
       }
+      if (typeof window.initConnectNav === 'function') {
+        window.initConnectNav(scrollHost);
+      }
     };
 
     if (!prefersReducedMotion) {

@@ -3154,10 +3154,9 @@ body.has-floating-cursor .gallery-lightbox__backdrop {
     pointer-events: auto;
   }
 
-  .site-header__nav > a[href="#about"],
-  .site-header__nav > a[href="/index.html#about"],
-  .site-header__nav > a[href="/resume.pdf"],
-  .site-header__nav > a[download] {
+  /* about + cv are always the first two direct nav children */
+  .site-header__nav > a:nth-child(1),
+  .site-header__nav > a:nth-child(2) {
     display: inline;
     transition:
       opacity 0.3s var(--ease),
@@ -3173,10 +3172,8 @@ body.has-floating-cursor .gallery-lightbox__backdrop {
     gap: 0;
   }
 
-  .site-header__nav.is-connect-open > a[href="#about"],
-  .site-header__nav.is-connect-open > a[href="/index.html#about"],
-  .site-header__nav.is-connect-open > a[href="/resume.pdf"],
-  .site-header__nav.is-connect-open > a[download] {
+  .site-header__nav.is-connect-open > a:nth-child(1),
+  .site-header__nav.is-connect-open > a:nth-child(2) {
     opacity: 0;
     transform: translateX(6px);
     max-width: 0;
