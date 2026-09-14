@@ -3110,6 +3110,17 @@ body.has-floating-cursor .gallery-lightbox__backdrop {
     line-height: 1.5;
   }
 
+  .about__meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1.5rem;
+    row-gap: 1.5rem;
+  }
+
+  .about__meta > div:first-child {
+    grid-column: 1 / -1;
+  }
+
   .site-header__nav {
     gap: 1rem;
   }
