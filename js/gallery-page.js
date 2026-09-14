@@ -173,7 +173,7 @@
       configEl.dataset.screenHover ||
       configEl.dataset.hoverColor ||
       document.body.dataset.hoverColor ||
-      '#ee816c';
+      '#FF705C';
 
     const wipeHost =
       display.closest('.case-panel') ||

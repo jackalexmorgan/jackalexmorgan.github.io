@@ -171,8 +171,8 @@ document.addEventListener('DOMContentLoaded', () => {
         window.initCaseHeaderLogo(scrollHost);
       }
 
-      if (typeof window.initAutoplayVideos === 'function') {
-        window.initAutoplayVideos(scrollHost);
+      if (typeof window.initConnectNav === 'function') {
+        window.initConnectNav(scrollHost);
       }
 
       setOpenState(true);

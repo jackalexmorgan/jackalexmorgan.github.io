@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../css/style.css?v=outcome-grey">
+  <link rel="stylesheet" href="../../css/style.css?v=connect-nav">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>J</text></svg>">
 </head>
 <body>
@@ -33,9 +33,15 @@
         </a>
       </div>
       <nav class="site-header__nav" aria-label="Site navigation">
-        <a href="/index.html#about">about</a>
+      <a href="/index.html#about">about</a>
+      <a href="/resume.pdf" download="Jack-Morgan-CV.pdf">cv</a>
+      <div class="site-header__connect">
+       <div class="site-header__connect-tray">
         <a href="mailto:jackalexmorgan@gmail.com">email</a>
         <a href="https://www.linkedin.com/in/jack-morgan-b9568921" target="_blank" rel="noopener noreferrer">linkedin</a>
+       </div>
+       <button type="button" class="site-header__connect-toggle" aria-expanded="false">connect</button>
+      </div>
       </nav>
     </header>
 
@@ -77,7 +83,7 @@
             <p class="case-stat__label">On complete product</p>
           </div>
           <span class="case-stat__icon" aria-hidden="true">
-            <img src="../../images/case-studies/zilo-migrate/stat-sole-designer.svg" alt="">
+            <img src="../../images/case-studies/zilo-migrate/stat-sole-designer.svg?v=stroke2" alt="">
           </span>
         </article>
         <article class="case-stat">
@@ -86,7 +92,7 @@
             <p class="case-stat__label">Built from fundamentals</p>
           </div>
           <span class="case-stat__icon" aria-hidden="true">
-            <img src="../../images/case-studies/zilo-migrate/stat-zero-to-one.svg" alt="">
+            <img src="../../images/case-studies/zilo-migrate/stat-zero-to-one.svg?v=stroke2" alt="">
           </span>
         </article>
         <article class="case-stat">
@@ -95,14 +101,14 @@
             <p class="case-stat__label">Designed for humans</p>
           </div>
           <span class="case-stat__icon" aria-hidden="true">
-            <img src="../../images/case-studies/zilo-migrate/stat-made-for-ai.svg" alt="">
+            <img src="../../images/case-studies/zilo-migrate/stat-made-for-ai.svg?v=stroke2" alt="">
           </span>
         </article>
       </div>
     </section>
 
     <div class="case-hero-image reveal">
-      <video autoplay muted loop playsinline webkit-playsinline preload="auto" aria-label="ZILO Migrate schema view switching between specification tables and relationships flowchart">
+      <video autoplay muted loop playsinline preload="auto" aria-label="ZILO Migrate schema view switching between specification tables and relationships flowchart">
         <source src="../../images/case-studies/zilo-migrate/design-testing/schema-relationships.mp4" type="video/mp4">
       </video>
     </div>
@@ -187,7 +193,7 @@
               <p>A simple switch lets users move between specification detail and relationships. Research showed people usually focus on one view at a time; this kept each mode optimised without losing context between them.</p>
             </div>
             <div class="design-test__media">
-              <video class="design-test__video" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-label="Schema view switching between specification tables and relationships flowchart">
+              <video class="design-test__video" autoplay muted loop playsinline preload="auto" aria-label="Schema view switching between specification tables and relationships flowchart">
                 <source src="../../images/case-studies/zilo-migrate/design-testing/schema-relationships.mp4" type="video/mp4">
               </video>
             </div>
@@ -267,7 +273,7 @@
     </div>
   </div>
 <script src="../../js/cursor.js"></script>
-<script src="../../js/autoplay-videos.js"></script>
+<script src="../../js/connect-nav.js"></script>
 <script src="../../js/case-header-logo.js"></script>
 <script src="../../js/case-panel.js"></script>
 <script src="../../js/gallery-page.js"></script>

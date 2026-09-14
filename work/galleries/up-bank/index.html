@@ -8,20 +8,26 @@
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="../../../css/style.css?v=lightbox-nav-mobile">
+ <link rel="stylesheet" href="../../../css/style.css?v=connect-nav">
  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>J</text></svg>">
 </head>
-<body class="gallery-page-body gallery-page-body--screen-hover" data-hover-color="#ee816c">
+<body class="gallery-page-body gallery-page-body--screen-hover" data-hover-color="#FF705C">
  <div class="case-panel case-panel--open" id="case-panel">
  <div class="case-panel__scroll">
- <div class="case-page" data-screen-hover="#ee816c">
+ <div class="case-page" data-screen-hover="#FF705C">
  <header class="case-header">
  <a href="/index.html" class="case-back">← back</a>
    <nav class="site-header__nav" aria-label="Site navigation">
    <a href="/index.html#about">about</a>
-   <a href="mailto:jackalexmorgan@gmail.com">email</a>
-   <a href="https://www.linkedin.com/in/jack-morgan-b9568921" target="_blank" rel="noopener noreferrer">linkedin</a>
-  </nav>
+   <a href="/resume.pdf" download="Jack-Morgan-CV.pdf">cv</a>
+   <div class="site-header__connect">
+    <div class="site-header__connect-tray">
+     <a href="mailto:jackalexmorgan@gmail.com">email</a>
+     <a href="https://www.linkedin.com/in/jack-morgan-b9568921" target="_blank" rel="noopener noreferrer">linkedin</a>
+    </div>
+    <button type="button" class="site-header__connect-toggle" aria-expanded="false">connect</button>
+   </div>
+   </nav>
  </header>
 
 
@@ -69,6 +75,7 @@
  </div>
  </div>
 <script src="../../../js/cursor.js"></script>
+<script src="../../../js/connect-nav.js"></script>
 <script src="../../../js/case-panel.js"></script>
  <script src="../../../js/gallery-page.js?v=lightbox-gutters"></script>
 </body>

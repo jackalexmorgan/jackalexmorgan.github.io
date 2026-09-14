@@ -229,7 +229,8 @@ button {
   pointer-events: none;
 }
 
-.site-header a {
+.site-header a,
+.site-header__connect-toggle {
   pointer-events: auto;
 }
 
@@ -248,6 +249,32 @@ button {
 .site-header__nav {
   display: flex;
   gap: clamp(1.25rem, 3vw, 2.5rem);
+  align-items: center;
+}
+
+.site-header__connect {
+  display: contents;
+}
+
+.site-header__connect-tray {
+  display: contents;
+}
+
+.site-header__connect-toggle {
+  display: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 14px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.3s var(--ease);
+}
+
+.site-header__connect-toggle:hover {
+  color: var(--text);
 }
 
 .site-header--static {
@@ -429,6 +456,11 @@ button {
   --block-hover: #6f56cc;
 }
 
+.block--case-study {
+  container-type: inline-size;
+  container-name: case-tile;
+}
+
 .block::before {
   content: '';
   position: absolute;
@@ -466,7 +498,12 @@ a.block {
 
 .block--case-study .block__body {
   flex-direction: row;
-  gap: clamp(2.5rem, 8vw, 120px);
+  justify-content: center;
+  justify-content: safe center;
+  /* Shrink image↔copy gap as the tile narrows; floor at 1rem before stack */
+  gap: clamp(1rem, calc(100cqw - 32px - 470px - 460px), 7.5rem);
+  width: 100%;
+  min-width: 0;
 }
 
 .block--case-study-reverse .block__body {
@@ -475,9 +512,11 @@ a.block {
 
 .block--case-study .block__media {
   position: static;
-  flex-shrink: 0;
-  width: auto;
-  max-width: none;
+  flex: 0 0 auto;
+  width: fit-content;
+  max-width: 100%;
+  /* Same vertical media inset as gallery tiles */
+  padding: 1.75rem 0;
 }
 
 .block__frame {
@@ -616,9 +655,10 @@ a.block {
 .block--case-study .block__copy {
   position: static;
   transform: none;
-  flex-shrink: 0;
+  flex: 0 1 auto;
   width: min(460px, 100%);
   max-width: 460px;
+  min-width: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -1331,34 +1371,43 @@ body.case-open {
 }
 
 .case-hero--product .case-stats {
-  gap: 2.25rem;
+  gap: 30px;
 }
 
 .case-hero--product .case-stat {
   align-items: center;
-  padding: 20px 22px;
+  padding: 14px 20px;
   background: #f6f6f6;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
+}
+
+.case-hero--product .case-stat__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .case-hero--product .case-stat__value {
   font-family: var(--font-sans);
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 400;
   font-style: normal;
-  color: #2f9e8f;
-  margin: 0 0 calc(0.2rem + 2px);
+  line-height: 1.2;
+  color: #39977E;
+  margin: 0;
 }
 
 .case-hero--product .case-stat__label {
-  font-size: 0.8125rem;
+  font-size: 13px;
+  line-height: 1.2;
   color: var(--text-body);
+  margin: 0;
 }
 
 .case-hero--product .case-stat__icon {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   border: none;
   border-radius: 0;
   color: #989393;
@@ -1366,8 +1415,8 @@ body.case-open {
 
 .case-hero--product .case-stat__icon img,
 .case-hero--product .case-stat__icon svg {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   display: block;
 }
 
@@ -2226,7 +2275,7 @@ body.has-floating-cursor .gallery-page__image--expandable {
   --hover-x: 50%;
   --hover-y: 50%;
   --hover-active-radius: 0px;
-  --screen-hover: #ee816c;
+  --screen-hover: #FF705C;
 }
 
 .gallery-page-body--screen-hover .case-panel,
@@ -2667,6 +2716,84 @@ body.has-floating-cursor .gallery-lightbox__backdrop {
   box-shadow: none;
 }
 
+/* Case-study tiles: shrink gap, then stack — keep 470px image and text while they fit */
+@container case-tile (max-width: 952px) {
+  .block__body {
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+    gap: 30px !important;
+    /* Same top/bottom air as gallery tiles (~89px / ~82px around the content) */
+    padding: 4.8125rem 0 3.0625rem !important;
+  }
+
+  .block__copy {
+    flex: 0 1 auto;
+    width: 100%;
+    max-width: 460px;
+    min-width: 0;
+    text-align: center;
+    align-items: center;
+  }
+
+  .block__tags {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .block__media {
+    width: fit-content !important;
+    max-width: 100%;
+    flex: 0 0 auto;
+    padding: 0 !important;
+  }
+
+  .block__frame.block__frame--case {
+    width: 470px;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 470 / 267;
+  }
+}
+
+/* Drop title/description only when the tile can no longer fit copy under the image */
+@container case-tile (max-width: 420px) {
+  .block__body {
+    /*
+      Match gallery insets:
+      - image from meta: ~87px (12 gap + 47 pad + 28 media pad)
+      - badges to tile bottom: ~72px (39 pad + 33 block pad)
+    */
+    flex: 0 0 auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    justify-content: flex-start !important;
+    padding: 2.9375rem 0 2.4375rem !important;
+    gap: 1.25rem !important;
+  }
+
+  .block__media {
+    padding: 1.75rem !important;
+  }
+
+  .block__copy {
+    display: contents;
+  }
+
+  .block__brand,
+  .block__title,
+  .block__desc {
+    display: none;
+  }
+
+  .block__tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+  }
+}
+
 /* ─── Responsive ─── */
 
 @media (max-width: 900px) {
@@ -2674,30 +2801,18 @@ body.has-floating-cursor .gallery-lightbox__backdrop {
     min-height: auto;
   }
 
-  .block--case-study .block__body {
+  .block--gallery {
+    min-height: 600px;
+  }
+
+  .block--case-study {
+    min-height: 600px;
+  }
+
+  .block--gallery .block__body {
     flex-direction: column;
     gap: 2rem;
     padding: 1rem 0 0.5rem;
-  }
-
-  .block--case-study-reverse .block__body {
-    flex-direction: column;
-  }
-
-  .block--case-study .block__copy {
-    width: 100%;
-    max-width: none;
-    padding: 0 0.5rem;
-  }
-
-  .block--case-study .block__tags {
-    flex-wrap: wrap;
-  }
-
-  .block__frame--case {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 470 / 267;
   }
 
   .block__frame--phone {
@@ -2869,6 +2984,10 @@ body.has-floating-cursor .gallery-lightbox__backdrop {
     grid-template-columns: 1fr;
   }
 
+  .case-hero--product .case-stats {
+    gap: 12px;
+  }
+
   .case-body {
     padding-top: 3.5rem;
     padding-bottom: 4rem;
@@ -2881,7 +3000,15 @@ body.has-floating-cursor .gallery-lightbox__backdrop {
     transform: none;
   }
 
-  .block__frame--swap.block__frame--case,
+  .block__frame--swap.block__frame--case {
+    position: relative;
+    width: 470px;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 470 / 267;
+    min-height: 160px;
+  }
+
   .block__frame--swap.block__frame--wide {
     position: relative;
     width: 100%;
@@ -2914,28 +3041,42 @@ body.has-floating-cursor .gallery-lightbox__backdrop {
     min-height: auto;
   }
 
+  .work .block--gallery {
+    min-height: 600px;
+  }
+
+  .work .block--case-study {
+    min-height: 600px;
+  }
+
+  /* No-text case tiles: size to content so top/bottom insets match gallery exactly */
+  @media (max-width: 480px) {
+    .work .block--case-study {
+      min-height: auto;
+    }
+  }
+
   .block--case-study .block__body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1.25rem;
+    gap: 30px;
+    flex: 1 1 auto;
+    padding: 0;
+    min-height: 0;
   }
 
   .block--case-study .block__copy {
-    display: contents;
-  }
-
-  .block--case-study .block__brand,
-  .block--case-study .block__title,
-  .block--case-study .block__desc {
-    display: none;
+    width: 100%;
+    max-width: 460px;
+    text-align: center;
+    align-items: center;
   }
 
   .block--case-study .block__tags {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 0;
   }
 
   .block::before {
@@ -2973,13 +3114,73 @@ body.has-floating-cursor .gallery-lightbox__backdrop {
     gap: 1rem;
   }
 
-  .site-header__nav a:not(:last-child) {
-    display: none;
+  .site-header__connect {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
   }
 
-  .site-header__nav a[href="mailto:jackalexmorgan@gmail.com"],
-  .site-header__nav a[href="#about"],
-  .site-header__nav a[href="/index.html#about"] {
+  .site-header__connect-toggle {
     display: inline;
+    position: relative;
+    z-index: 1;
+  }
+
+  .site-header__connect.is-open .site-header__connect-toggle {
+    color: var(--text);
+  }
+
+  .site-header__connect-tray {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 0;
+    margin-right: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    transition:
+      max-width 0.45s var(--ease),
+      margin-right 0.45s var(--ease),
+      opacity 0.3s var(--ease);
+  }
+
+  .site-header__connect.is-open .site-header__connect-tray {
+    max-width: 11rem;
+    margin-right: 1rem;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .site-header__nav > a[href="#about"],
+  .site-header__nav > a[href="/index.html#about"],
+  .site-header__nav > a[href="/resume.pdf"],
+  .site-header__nav > a[download] {
+    display: inline;
+    transition:
+      opacity 0.3s var(--ease),
+      transform 0.35s var(--ease),
+      max-width 0.35s var(--ease),
+      margin 0.35s var(--ease);
+    max-width: 5rem;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .site-header__nav.is-connect-open {
+    gap: 0;
+  }
+
+  .site-header__nav.is-connect-open > a[href="#about"],
+  .site-header__nav.is-connect-open > a[href="/index.html#about"],
+  .site-header__nav.is-connect-open > a[href="/resume.pdf"],
+  .site-header__nav.is-connect-open > a[download] {
+    opacity: 0;
+    transform: translateX(6px);
+    max-width: 0;
+    margin: 0;
+    pointer-events: none;
   }
 }
