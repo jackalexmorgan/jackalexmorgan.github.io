@@ -271,7 +271,7 @@ button {
   z-index: 0;
   min-height: 100dvh;
   height: 100dvh;
-  padding: 0 var(--gutter);
+  padding: 0;
   overflow: hidden;
 }
 
@@ -281,8 +281,9 @@ button {
   left: 50%;
   transform: translate(-50%, -50%);
   transform-origin: center center;
-  max-width: 960px;
-  width: 100%;
+  box-sizing: border-box;
+  width: min(960px, calc(100% - 2 * var(--gutter)));
+  max-width: min(960px, calc(100% - 2 * var(--gutter)));
   will-change: transform;
 }
 
@@ -2827,8 +2828,6 @@ body.has-floating-cursor .gallery-lightbox__backdrop {
 
   .hero__content {
     text-align: left;
-    padding-inline: clamp(1rem, 5vw, 1.5rem);
-    box-sizing: border-box;
   }
 
   .hero__title {
@@ -2965,17 +2964,6 @@ body.has-floating-cursor .gallery-lightbox__backdrop {
 }
 
 @media (max-width: 640px) {
-  .hero {
-    padding-inline: var(--gutter);
-  }
-
-  .hero__content {
-    width: 100%;
-    max-width: 100%;
-    padding-inline: clamp(1rem, 5vw, 1.5rem);
-    box-sizing: border-box;
-  }
-
   .hero__title {
     font-size: clamp(1.625rem, 6.75vw, 2rem);
     line-height: 1.5;

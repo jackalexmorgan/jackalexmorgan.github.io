@@ -171,6 +171,10 @@ document.addEventListener('DOMContentLoaded', () => {
         window.initCaseHeaderLogo(scrollHost);
       }
 
+      if (typeof window.initAutoplayVideos === 'function') {
+        window.initAutoplayVideos(scrollHost);
+      }
+
       setOpenState(true);
       await waitForTransition();
 
