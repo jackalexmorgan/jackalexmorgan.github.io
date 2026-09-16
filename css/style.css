@@ -17,6 +17,7 @@
   --layout-gutter: clamp(1.5rem, 5vw, 5rem);
   --gutter: var(--layout-gutter);
   --work-screenshot-shadow: 0 4px 32px rgba(0, 0, 0, 0.2);
+  --gallery-nav-gap: clamp(0.75rem, 2vw, 1.5rem);
 }
 
 *,
@@ -2140,7 +2141,7 @@ body.case-open {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(0.75rem, 2vw, 1.5rem);
+  gap: var(--gallery-nav-gap);
   width: 100%;
   padding: clamp(1.5rem, 4vw, 2.5rem);
   background: var(--bg-block);
@@ -2515,7 +2516,7 @@ body.has-floating-cursor .gallery-lightbox__backdrop {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(0.75rem, 2vw, 1.5rem);
+  gap: var(--gallery-nav-gap);
   width: min(100%, 780px);
 }
 
@@ -2668,16 +2669,18 @@ body.has-floating-cursor .gallery-lightbox__backdrop {
 }
 
 .case-gallery__flow {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: center;
+  gap: var(--gallery-nav-gap);
+  width: 100%;
 }
 
 .case-gallery__screen {
   margin: 0;
   display: flex;
   justify-content: center;
+  min-width: 0;
 }
 
 .case-gallery__screen .gallery-page__image {
@@ -3165,7 +3168,7 @@ body.has-floating-cursor .gallery-lightbox__backdrop {
     pointer-events: auto;
   }
 
-  /* about + cv are always the first two direct nav children */
+  /* about + resume are always the first two direct nav children */
   .site-header__nav > a:nth-child(1),
   .site-header__nav > a:nth-child(2) {
     display: inline;
